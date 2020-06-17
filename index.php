@@ -27,15 +27,18 @@
 <body>
 
 <?php
-$url = "http://localhost/hanutimes/api/home.php";
+if(!isset($_GET['page'])){ $page=1;}
+else{$page= $_GET['page'];}
+
+$url = "http://localhost/hanutimes/api/home.php?page=$page";
 
 $news = curl_init($url);
 curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($news);
 
 $result = json_decode($response, true);
-/*var_dump($response);
-*/
+// var_dump($response);
+
 ?>
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
@@ -94,10 +97,10 @@ $result = json_decode($response, true);
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>Categories</h3>
-							<li><a href="cine">Cine<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="music">Music<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="lifestyle">Lifestyle<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="food">Food<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="cine?id=1">Cine<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="music?id=2">Music<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="lifestyle?id=3">Lifestyle<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="food?id=4">Food<span class="ion-ios-arrow-forward"></span></a></li>
 							</div>
 					</div>
 
@@ -109,7 +112,7 @@ $result = json_decode($response, true);
 							<div class="row d-flex">
 							  <div class="col-md-6 d-flex ftco-animate">
 								  <div class="blog-entry justify-content-end">
-								  <a href="single.php" class="block-20" style="background-image: url('images/<?php echo $value['pic']?>.jpg');">
+								  <a href='single.php?id=<?php echo $value['id'];?>' class="block-20" style="background-image: url('images/<?php echo $value['pic'];?>.jpg');">
 								  </a>
 								  <div class="text p-4 float-right d-block">
 									  <div class="topper d-flex align-items-center">
@@ -345,14 +348,14 @@ $result = json_decode($response, true);
 					<div class="row mt-5">
 						<div class="col text-center">
 							<div class="block-27">
-								<ul>
-									<li><a href="#">&lt;</a></li>
-									<li class="active"><span>1</span></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#">&gt;</a></li>
+								<ul>	
+								<li><a href="index.php?page=<?php echo ($page-1); ?>">&lt;</a></li>
+								<?php for($i=1;$i<=$value['total_page'];$i++){ ?>
+								<li <?php if($page == $i) echo "class='active'"; ?> >
+								<a href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+					<?php } ?>
+					<li><a href="index.php?page=<?php echo ($page+1); ?>">&gt;</a></li>
+							
 								</ul>
 							</div>
 						</div>

@@ -22,14 +22,28 @@ class News
   }
 
   // Get Posts
-  public function read()
+  public function read_all()
   {
     // Create query
-    $query = 'SELECT * FROM ' . $this->table. ' ORDER BY created_date DESC LIMIT 5 OFFSET 0';
+    $query = "SELECT * FROM " . $this->table;
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
 
+    return $stmt;
+  }
+  	
+  public function read_page( $start,$limit)
+  {
+    // Create query
+    $query = "SELECT * FROM " . $this->table . " ORDER BY
+    created_date ASC LIMIT " .$start.
+    ', '. $limit;
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
     // Execute query
     $stmt->execute();
 
