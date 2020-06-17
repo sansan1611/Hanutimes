@@ -39,7 +39,7 @@ class News
   {
     // Create query
     $query = "SELECT * FROM " . $this->table . " ORDER BY
-    created_date ASC LIMIT " .$start.
+    created_date DESC LIMIT " .$start.
     ', '. $limit;
 
     // Prepare statement
