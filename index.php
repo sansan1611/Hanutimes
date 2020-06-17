@@ -34,7 +34,8 @@ curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($news);
 
 $result = json_decode($response, true);
-var_dump($response);
+/*var_dump($response);
+*/
 ?>
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
@@ -56,7 +57,7 @@ var_dump($response);
 	</nav>
 	<!-- END nav -->
 
-	<div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');"
+	<div class="hero-wrap js-fullheight" style="background-image: url('images/hanu.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -64,7 +65,7 @@ var_dump($response);
 				data-scrollax-parent="true">
 				<div class="col-md-12 ftco-animate">
 					<h2 class="subheading">Hello! Welcome to</h2>
-					<h1 class="mb-4 mb-md-0">Readit blog</h1>
+					<h1 class="mb-4 mb-md-0">Hanutimes</h1>
 					<div class="row">
 						<div class="col-md-7">
 							<div class="text">
@@ -93,192 +94,44 @@ var_dump($response);
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>Categories</h3>
-							<li><a href="#">Illustration <span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="#">Branding <span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="#">Application <span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="#">Design <span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="#">Marketing <span class="ion-ios-arrow-forward"></span></a></li>
-						</div>
+							<li><a href="cine">Cine<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="music">Music<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="lifestyle">Lifestyle<span class="ion-ios-arrow-forward"></span></a></li>
+							<li><a href="food">Food<span class="ion-ios-arrow-forward"></span></a></li>
+							</div>
 					</div>
 
 
 				</div>
 				<div class="col-lg-9 ftco-animate">
 					<div class="col-md-12">
-						
+					<?php foreach($result as $key=>$value): ?>	
 							<div class="row d-flex">
 							  <div class="col-md-6 d-flex ftco-animate">
 								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+								  <a href="single.php" class="block-20" style="background-image: url('images/<?php echo $value['pic']?>.jpg');">
 								  </a>
 								  <div class="text p-4 float-right d-block">
 									  <div class="topper d-flex align-items-center">
+									  <?php $date=explode('-',$value['created_date']); ?>
 										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
+											  <span class="day"><?php echo $date[2]?></span>
 										  </div>
 										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
+											  <span class="yr"><?php echo $date[0]?></span>
+											  <span class="mos"><?php echo date("F", mktime(0, 0, 0, $date[1], 10))?></span>
 										  </div>
 									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+									  <h7><?php echo $value['author'];?> </h7>
+									  <h3 class="heading mb-3"><a href="#"><p><?php echo $value['short_intro']; ?></p></a></h3>
+									<p><?php echo $value['title']; ?></p>
 									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
 								  </div>
 								</div>
 							  </div>
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-					
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-					
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_7.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_8.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day">18</span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr">2019</span>
-											  <span class="mos">October</span>
-										  </div>
-									  </div>
-									  <h7>Quynh Truong</h7>
-									  <h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
+							
 							</div>						
-						  
+							<?php endforeach; ?>	
 						<!-- <div class="case">
 							<div class="row">
 								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
