@@ -117,7 +117,7 @@ $resultC = json_decode($responseC, true);
 							<div class="case">
 								<div class="row">
 									<div class="col-md-6 col-lg-6 col-xl-6 d-flex">
-										<a href='single.php?id=<?php echo $value['id']; ?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');">
+									<a href='news_single.php?id=<?php echo $value['id'];?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');">
 										</a>
 									</div>
 									<div class="col-md-6 col-lg-6 col-xl-6 d-flex">
@@ -133,9 +133,9 @@ $resultC = json_decode($responseC, true);
 												
 												<p class="mb-1"><?php echo $mos . ' ' . $day . ', ' . $yr ?></p>
 											</div>
-											<h3 class="heading mb-3"><a href="blog-single.html"><?php echo $value['title']; ?></a></h3>
+											<h3 class="heading mb-3"><a href='news_single.php?id=<?php echo $value['id'];?>'><?php echo $value['title']; ?></a></h3>
 											<p><?php echo $value['short_intro']; ?></p>
-											<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+											<p>  <a href='news_single.php?id=<?php echo $value['id'];?>' class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
 
 
 
