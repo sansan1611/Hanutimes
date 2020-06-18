@@ -90,8 +90,7 @@ public function read_all_news_cat_page( $id,$start,$limit)
   public function read_single()
   {
     // Create query
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ? LIMIT 1';
-    // Prepare statement
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ?';  // Prepare statement
     $stmt = $this->conn->prepare($query);
 
     // Bind ID

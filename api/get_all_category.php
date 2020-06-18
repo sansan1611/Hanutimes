@@ -10,10 +10,10 @@
   $db = $database->connect();
 
   // Instantiate blog post object
-  $Category = new Category($db);
+  $category = new Category($db);
 
   // Blog post query
-  $result = $Category->read_all();
+  $result = $category->read_all();
   // Get row count
   $num = $result->rowCount();
 
