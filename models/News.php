@@ -50,6 +50,42 @@ class News
     return $stmt;
   }
 
+//Get all news of a category
+// Get Posts
+public function read_all_news_cat($id)
+{
+  // Create query
+  $query = "SELECT *
+  FROM news
+  LEFT JOIN category
+  ON news.cat_id = category.id
+  WHERE cat_id= ".$id.";";
+
+  // Prepare statement
+  $stmt = $this->conn->prepare($query);
+  // Execute query
+  $stmt->execute();
+
+  return $stmt;
+}
+  
+public function read_all_news_cat_page( $id,$start,$limit)
+{
+  // Create query
+  $query = "SELECT * FROM news LEFT JOIN category 
+  ON news.cat_id = category.id 
+  WHERE cat_id= $id ORDER BY created_date DESC LIMIT " .$start.
+  ', '. $limit;
+
+  // Prepare statement
+  $stmt = $this->conn->prepare($query);
+  // Execute query
+  $stmt->execute();
+
+  return $stmt;
+}
+
+
   // Get Single Post
   public function read_single()
   {
