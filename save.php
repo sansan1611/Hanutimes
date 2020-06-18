@@ -106,7 +106,73 @@
 
 				</div>
 
+				<div class="col-lg-9 ftco-animate">
+					<div class="col-md-12">
+						<!-- <?php foreach ($result as $key => $value) : ?>
+							<div class="row d-flex">
+								<div class="col-md-6 d-flex ftco-animate">
+									<div class="blog-entry justify-content-end">
+										<a href='single.php?id=<?php echo $value['id']; ?>' class="block-20" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');">
+										</a>
+										<div class="text p-4 float-right d-block">
+											<div class="topper d-flex align-items-center">
+												<?php $date = explode('-', $value['created_date']); ?>
+												<div class="one py-2 pl-3 pr-1 align-self-stretch">
+													<span class="day"><?php echo $date[2] ?></span>
+												</div>
+												<div class="two pl-0 pr-3 py-2 align-self-stretch">
+													<span class="yr"><?php echo $date[0] ?></span>
+													<span class="mos"><?php echo date("F", mktime(0, 0, 0, $date[1], 10)) ?></span>
+												</div>
+											</div>
+											<h7><?php echo $value['author']; ?> </h7>
+											<h3 class="heading mb-3"><a href="#">
+													<p><?php echo $value['short_intro']; ?></p>
+												</a></h3>
+											<p><?php echo $value['title']; ?></p>
+											<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+										</div>
+									</div>
+								</div>
 
+							</div>
+						<?php endforeach; ?> -->
+
+						<!-- <div class="row d-flex">
+							<div class="col-md-6 d-flex ftco-animate">
+								<div class="blog-entry justify-content-end">
+									<a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+									</a>
+									<div class="text p-4 float-right d-block">
+										<div class="topper d-flex align-items-center">
+											<div class="one py-2 pl-3 pr-1 align-self-stretch">
+												<span class="day">18</span>
+											</div>
+											<div class="two pl-0 pr-3 py-2 align-self-stretch">
+												<span class="yr">2019</span>
+												<span class="mos">October</span>
+											</div>
+										</div>
+									</div>
+									<div class="text p-4 float-right d-block">
+										<h7>Quynh Truong</h7>
+										<h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
+										<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+										<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex ftco-animate">
+								<div class="blog-entry justify-content-end">
+									<div class="text p-4 float-right d-block">
+										<h7>Quynh Truong</h7>
+										<h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
+										<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+										<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+									</div>
+								</div>
+							</div>
+						</div> -->
 
 						<?php foreach ($result as $key => $value) : ?>
 							<div class="case">
@@ -132,7 +198,14 @@
 											<p><?php echo $value['short_intro']; ?></p>
 											<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
 
-
+											<!-- <ul class="media-social list-unstyled">
+											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+											</li>
+											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+											</li>
+											<li class="ftco-animate"><a href="#"><span
+														class="icon-instagram"></span></a></li>
+										</ul> -->
 
 										</div>
 									</div>
@@ -164,7 +237,79 @@
 
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
-
+			<!-- <div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="logo"><a href="#">Read<span>it</span>.</a></h2>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+							there live the blind texts.</p>
+						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+							<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">latest News</h2>
+						<div class="block-21 mb-4 d-flex">
+							<a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+							<div class="text">
+								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a>
+								</h3>
+								<div class="meta">
+									<div><a href="#"></span> Oct. 16, 2019</a></div>
+									<div><a href="#"></span> Admin</a></div>
+									<div><a href="#"></span> 19</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="block-21 mb-4 d-flex">
+							<a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+							<div class="text">
+								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a>
+								</h3>
+								<div class="meta">
+									<div><a href="#"></span> Oct. 16, 2019</a></div>
+									<div><a href="#"></span> Admin</a></div>
+									<div><a href="#"></span> 19</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Information</h2>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-1 d-block"><span
+										class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
+							<li><a href="#" class="py-1 d-block"><span
+										class="ion-ios-arrow-forward mr-3"></span>About</a></li>
+							<li><a href="#" class="py-1 d-block"><span
+										class="ion-ios-arrow-forward mr-3"></span>Articles</a></li>
+							<li><a href="#" class="py-1 d-block"><span
+										class="ion-ios-arrow-forward mr-3"></span>Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain
+										View, San Francisco, California, USA</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929
+											210</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span
+											class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div> -->
 			<div class="row">
 				<div class="col-md-12 text-center">
 
