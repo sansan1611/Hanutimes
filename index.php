@@ -26,21 +26,28 @@
 
 <body>
 
-	<?php
-	if (!isset($_GET['page'])) {
-		$page = 1;
-	} else {
-		$page = $_GET['page'];
-	}
+	
+<?php
+if(!isset($_GET['page'])){ $page=1;}
+else{$page= $_GET['page'];}
 
-	$url = "http://localhost/hanutimes/api/home.php?page=$page";
+$url = "http://localhost/hanutimes/api/get_all_news.php?page=$page";
 
-	$news = curl_init($url);
-	curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
-	$response = curl_exec($news);
+$news = curl_init($url);
+curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
+$response = curl_exec($news);
 
-	$result = json_decode($response, true);
-	// var_dump($response);
+$result = json_decode($response, true);
+// var_dump($result);
+
+$urlC = "http://localhost/hanutimes/api/get_all_category.php";
+
+$category = curl_init($urlC);
+curl_setopt($category,CURLOPT_RETURNTRANSFER,true);
+$responseC = curl_exec($category);
+
+$resultC = json_decode($responseC, true);
+// var_dump($resultC);
 
 	?>
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -96,11 +103,9 @@
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>Categories</h3>
-							<li><a href="cine?id=1">Cine<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="music?id=2">Music<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="lifestyle?id=3">Lifestyle<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="food?id=4">Food<span class="ion-ios-arrow-forward"></span></a></li>
-						</div>
+							<?php foreach($resultC as $key=>$value): ?>	
+							<li><a href="category.php?id=<?php echo $value['id']?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
+							<?php endforeach; ?>	</div>
 					</div>
 
 
