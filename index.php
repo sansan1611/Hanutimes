@@ -30,19 +30,27 @@
 if(!isset($_GET['page'])){ $page=1;}
 else{$page= $_GET['page'];}
 
-$url = "http://localhost/hanutimes/api/home.php?page=$page";
+$url = "http://localhost/hanutimes/api/get_all_news.php?page=$page";
 
 $news = curl_init($url);
 curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($news);
 
 $result = json_decode($response, true);
-// var_dump($response);
+// var_dump($result);
 
+$urlC = "http://localhost/hanutimes/api/get_all_category.php";
+
+$category = curl_init($urlC);
+curl_setopt($category,CURLOPT_RETURNTRANSFER,true);
+$responseC = curl_exec($category);
+
+$resultC = json_decode($responseC, true);
+// var_dump($resultC);
 ?>
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Read<i>it</i>.</a>
+			<a class="navbar-brand" href="#">Read<i>it</i>.</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
 				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
@@ -50,10 +58,10 @@ $result = json_decode($response, true);
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
 					<!-- <li class="nav-item"><a href="blog.html" class="nav-link">Articles</a></li> -->
-					<li class="nav-item"><a href="about.html" class="nav-link">Team</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="template/about.html" class="nav-link">Team</a></li>
+					<li class="nav-item"><a href="template/contact.html" class="nav-link">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -97,11 +105,10 @@ $result = json_decode($response, true);
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>Categories</h3>
-							<li><a href="cine?id=1">Cine<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="music?id=2">Music<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="lifestyle?id=3">Lifestyle<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="food?id=4">Food<span class="ion-ios-arrow-forward"></span></a></li>
-							</div>
+							<?php foreach($resultC as $key=>$value): ?>	
+							<li><a href="category.php?id=<?php echo $value['id']?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
+							<?php endforeach; ?>		
+						</div>
 					</div>
 
 
@@ -112,7 +119,7 @@ $result = json_decode($response, true);
 							<div class="row d-flex">
 							  <div class="col-md-6 d-flex ftco-animate">
 								  <div class="blog-entry justify-content-end">
-								  <a href='single.php?id=<?php echo $value['id'];?>' class="block-20" style="background-image: url('images/<?php echo $value['pic'];?>.jpg');">
+								  <a href='news_single.php?id=<?php echo $value['id'];?>' class="block-20" style="background-image: url('images/<?php echo $value['pic'];?>.jpg');">
 								  </a>
 								  <div class="text p-4 float-right d-block">
 									  <div class="topper d-flex align-items-center">
@@ -126,9 +133,9 @@ $result = json_decode($response, true);
 										  </div>
 									  </div>
 									  <h7><?php echo $value['author'];?> </h7>
-									  <h3 class="heading mb-3"><a href="#"><p><?php echo $value['short_intro']; ?></p></a></h3>
+									  <h3 class="heading mb-3"><a href="news_single.php?id=<?php echo $value['id'];?>"><p><?php echo $value['short_intro']; ?></p></a></h3>
 									<p><?php echo $value['title']; ?></p>
-									<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+									<p><a href='news_single.php?id=<?php echo $value['id'];?>' class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
 								  </div>
 								</div>
 							  </div>

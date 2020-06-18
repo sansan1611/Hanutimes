@@ -61,7 +61,6 @@ $limit=5;
       array_push($posts_arr, $post_item);
       // array_push($posts_arr['data'], $post_item);
     }
-
     // Turn to JSON & output
     echo json_encode($posts_arr);
 
