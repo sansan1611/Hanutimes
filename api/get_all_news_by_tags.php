@@ -46,7 +46,7 @@ if ($num > 0) {
         extract($row);
 
         $post_item = array(
-            'id' => $id,
+            'news_id' => $news_id,
             'title' => $title,
             'content' => html_entity_decode($content),
             'created_date' => html_entity_decode($created_date),

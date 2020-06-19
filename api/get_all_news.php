@@ -18,7 +18,7 @@
   $resultA = $news->read_all();
   // Get row count
   $num = $resultA->rowCount();
-$limit=5;
+  $limit=5;
   $total_page=ceil($num/$limit);
   		//xem trang có vượt giới hạn không:
   if(isset($_GET["page"])) $page=$_GET["page"];//nếu biến $_GET["page"] tồn tại thì trang hiện tại là trang $_GET["page"]

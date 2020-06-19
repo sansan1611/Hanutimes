@@ -13,7 +13,7 @@
   $Tag = new Tag($db);
 
   // Blog post query
-  $result = $Tag->read_all($id);
+  $result = $Tag->read_all();
   // Get row count
   $num = $result->rowCount();
 

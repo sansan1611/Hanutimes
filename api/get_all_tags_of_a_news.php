@@ -15,7 +15,7 @@
   $tags = new Tag($db);
 
   // Blog post query
-  $result = $tags->read_all($id);
+  $result = $tags->read_all_tag_of_a_news($id);
   // Get row count
   $num = $result->rowCount();
   // Check if any posts

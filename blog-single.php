@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Readit - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Hanutimes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -23,6 +23,17 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+
+    <?php
+    $id = $_GET['id'];    
+    $url = "http://localhost/hanutimes/api/get_a_news.php?id=$id";
+    
+    $news = curl_init($url);
+    curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
+    $response = curl_exec($news);
+    
+    $result = json_decode($response, true);
+    ?>
     
 	  <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -42,7 +53,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/hanu.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
