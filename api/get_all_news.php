@@ -6,7 +6,7 @@
   include_once '../config/Database.php';
   include_once '../models/News.php';
 
-  $page= $_GET['page'];
+  $page= 1;
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
@@ -51,7 +51,7 @@ $limit=5;
         'created_date' => html_entity_decode($created_date),
         'pic' => html_entity_decode($pic),
         'author' => html_entity_decode($author),
-        'cat_id' => html_entity_decode($cat_id),
+        'cat_id' => html_entity_decode($cat_id),       
         'short_intro' => html_entity_decode($short_intro),
         'total_page'=>$total_page
        

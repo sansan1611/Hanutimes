@@ -26,33 +26,35 @@
 
 <body>
 
-<?php
-if(!isset($_GET['page'])){ $page=1;}
-else{$page= $_GET['page'];}
-$id= $_GET['id'];
-$url = "http://localhost/hanutimes/api/get_all_news_of_a_category.php?page=$page&&id=$id";
+	<?php
+	if (!isset($_GET['page'])) {
+		$page = 1;
+	} else {
+		$page = $_GET['page'];
+	}
+	$id = $_GET['id'];
+	$url = "http://localhost/hanutimes/api/get_all_news_of_a_category.php?id=$id&&page=$page";
 
-$news = curl_init($url);
-curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
-$response = curl_exec($news);
+	$news = curl_init($url);
+	curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($news);
 
-$result = json_decode($response, true);
-//  var_dump($result);
+	$result = json_decode($response, true);
+	//  var_dump($result);
 
-$urlC = "http://localhost/hanutimes/api/get_all_category.php";
+	$urlC = "http://localhost/hanutimes/api/get_all_category.php";
 
-$category = curl_init($urlC);
-curl_setopt($category,CURLOPT_RETURNTRANSFER,true);
-$responseC = curl_exec($category);
+	$category = curl_init($urlC);
+	curl_setopt($category, CURLOPT_RETURNTRANSFER, true);
+	$responseC = curl_exec($category);
 
-$resultC = json_decode($responseC, true);
-// var_dump($resultC);
-?>
+	$resultC = json_decode($responseC, true);
+	// var_dump($resultC);
+	?>
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="#">Read<i>it</i>.</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<a class="navbar-brand" href="index.php">Hanu<i>times</i>.</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
 
@@ -68,12 +70,10 @@ $resultC = json_decode($responseC, true);
 	</nav>
 	<!-- END nav -->
 
-	<div class="hero-wrap js-fullheight" style="background-image: url('images/hanu.jpg');"
-		data-stellar-background-ratio="0.5">
+	<div class="hero-wrap js-fullheight" style="background-image: url('images/hanu.jpg');" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
-			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
-				data-scrollax-parent="true">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
 				<div class="col-md-12 ftco-animate">
 					<h2 class="subheading">Hello! Welcome to</h2>
 					<h1 class="mb-4 mb-md-0">Hanutimes</h1>
@@ -98,16 +98,16 @@ $resultC = json_decode($responseC, true);
 
 	<section class="ftco-section">
 		<div class="container">
-			
+
 			<div class="row">
 				<div class="col-lg-3 sidebar pl-lg-5 ftco-animate">
 
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>Categories</h3>
-							<?php foreach($resultC as $key=>$value): ?>	
-							<li><a href="category.php?id=<?php echo $value['id']?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
-							<?php endforeach; ?>		
+							<?php foreach ($resultC as $key => $value) : ?>
+								<li><a href="category.php?id=<?php echo $value['id']; ?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
+							<?php endforeach; ?>
 						</div>
 					</div>
 
@@ -115,349 +115,72 @@ $resultC = json_decode($responseC, true);
 				</div>
 				<div class="col-lg-9 ftco-animate">
 					<div class="col-md-12">
-					<?php foreach($result as $key=>$value): ?>	
-							<div class="row d-flex">
-							  <div class="col-md-6 d-flex ftco-animate">
-								  <div class="blog-entry justify-content-end">
-								  <a href='news_single.php?id=<?php echo $value['id'];?>' class="block-20" style="background-image: url('images/<?php echo $value['pic'];?>.jpg');">
-								  </a>
-								  <div class="text p-4 float-right d-block">
-									  <div class="topper d-flex align-items-center">
-									  <?php $date=explode('-',$value['created_date']); ?>
-										  <div class="one py-2 pl-3 pr-1 align-self-stretch">
-											  <span class="day"><?php echo $date[2]?></span>
-										  </div>
-										  <div class="two pl-0 pr-3 py-2 align-self-stretch">
-											  <span class="yr"><?php echo $date[0]?></span>
-											  <span class="mos"><?php echo date("F", mktime(0, 0, 0, $date[1], 10))?></span>
-										  </div>
-									  </div>
-									  <h7><?php echo $value['author'];?> </h7>
-									  <h3 class="heading mb-3"><a href="news_single.php?id=<?php echo $value['id'];?>"><p><?php echo $value['short_intro']; ?></p></a></h3>
-									<p><?php echo $value['title']; ?></p>
-									<p><a href='news_single.php?id=<?php echo $value['id'];?>' class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-								  </div>
-								</div>
-							  </div>
-							
-							</div>						
-							<?php endforeach; ?>	
-						<!-- <div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_2.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Application</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
+						<?php foreach ($result as $key => $value) : ?>
+							<div class="case">
+								<div class="row">
+									<div class="col-md-6 col-lg-6 col-xl-6 d-flex">
+										<a href='news_single.php?id=<?php echo $value['id']; ?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');">
+										</a>
 									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_3.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Design</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_4.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Illustration</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_5.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Illustration</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_6.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Illustration</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_7.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Illustration</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_8.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Illustration</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="case">
-							<div class="row">
-								<div class="col-md-6 col-lg-6 col-xl-8 d-flex">
-									<a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
-										style="background-image: url(images/image_9.jpg);"></a>
-								</div>
-								<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
-									<div class="text w-100 pl-md-3">
-										<span class="subheading">Illustration</span>
-										<h2><a href="blog-single.html">Build a website in minutes with Adobe
-												Templates</a></h2>
-										<ul class="media-social list-unstyled">
-											<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
-											</li>
-											<li class="ftco-animate"><a href="#"><span
-														class="icon-instagram"></span></a></li>
-										</ul>
-										<div class="meta">
-											<p class="mb-0"><a href="#">11/13/2019</a> | <a href="#">12 min read</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
+									<div class="col-md-6 col-lg-6 col-xl-6 d-flex">
+										<div class="text w-100 pl-md-3">
+											<span class="subheading"><?php echo $value['author']; ?> </span>
+											<div class="meta">
+												<?php $date = explode('-', $value['created_date']); ?>
+												<?php
+												$day = $date[2];
+												$mos = date("F", mktime(0, 0, 0, $date[1], 10));
+												$yr = $date[0];
+												?>
 
-					<div class="row mt-5">
-						<div class="col text-center">
-							<div class="block-27">
-								<ul>	
-								<li><a href="category.php?page=<?php echo ($page-1); ?>">&lt;</a></li>
-								<?php for($i=1;$i<=$value['total_page'];$i++){ ?>
-								<li <?php if($page == $i) echo "class='active'"; ?> >
-								<a href="category.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-					<?php } ?>
-					<li><a href="category.php?page=<?php echo ($page+1); ?>">&gt;</a></li>
-							
-								</ul>
+												<p class="mb-1"><?php echo $mos . ' ' . $day . ', ' . $yr ?></p>
+											</div>
+											<h3 class="heading mb-3"><a href='news_single.php?id=<?php echo $value['id']; ?>'><?php echo $value['title']; ?></a></h3>
+											<p><?php echo $value['short_intro']; ?></p>
+											<p> <a href='news_single.php?id=<?php echo $value['id']; ?>' class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+
+						<div class="row mt-5">
+							<div class="col text-center">
+								<div class="block-27">
+									<ul>
+										<li><a href="category.php?page=<?php echo ($page - 1); ?>">&lt;</a></li>
+										<?php for ($i = 1; $i <= $value['total_page']; $i++) { ?>
+											<li <?php if ($page == $i) echo "class='active'"; ?>>
+												<a href="category.php?id=<?php echo $id;?>&&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+										<?php } ?>
+										<li><a href="category.php?id=<?php echo $id;?>&&page=<?php echo ($page + 1); ?>">&gt;</a></li>
+
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				</div>	
 			</div>
 		</div>
 	</section>
 
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
-		<div class="container">
-			<!-- <div class="row mb-5">
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="logo"><a href="#">Read<span>it</span>.</a></h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-							there live the blind texts.</p>
-						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-							<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">latest News</h2>
-						<div class="block-21 mb-4 d-flex">
-							<a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
-							<div class="text">
-								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a>
-								</h3>
-								<div class="meta">
-									<div><a href="#"></span> Oct. 16, 2019</a></div>
-									<div><a href="#"></span> Admin</a></div>
-									<div><a href="#"></span> 19</a></div>
-								</div>
-							</div>
-						</div>
-						<div class="block-21 mb-4 d-flex">
-							<a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
-							<div class="text">
-								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a>
-								</h3>
-								<div class="meta">
-									<div><a href="#"></span> Oct. 16, 2019</a></div>
-									<div><a href="#"></span> Admin</a></div>
-									<div><a href="#"></span> 19</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4 ml-md-5">
-						<h2 class="ftco-heading-2">Information</h2>
-						<ul class="list-unstyled">
-							<li><a href="#" class="py-1 d-block"><span
-										class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
-							<li><a href="#" class="py-1 d-block"><span
-										class="ion-ios-arrow-forward mr-3"></span>About</a></li>
-							<li><a href="#" class="py-1 d-block"><span
-										class="ion-ios-arrow-forward mr-3"></span>Articles</a></li>
-							<li><a href="#" class="py-1 d-block"><span
-										class="ion-ios-arrow-forward mr-3"></span>Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain
-										View, San Francisco, California, USA</span></li>
-								<li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929
-											210</span></a></li>
-								<li><a href="#"><span class="icon icon-envelope"></span><span
-											class="text">info@yourdomain.com</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div> -->
+		<div class="container">			
 			<div class="row">
 				<div class="col-md-12 text-center">
 
 					<p>
-						Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+						Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 						Copyright &copy;
-						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-						is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-						 Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+						<script>
+							document.write(new Date().getFullYear());
+						</script> All rights reserved | This template
+						is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 					</p>
 				</div>
 			</div>
@@ -469,8 +192,7 @@ $resultC = json_decode($responseC, true);
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-				stroke="#F96D00" /></svg></div>
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
 
 
 	<script src="js/jquery.min.js"></script>
@@ -485,8 +207,7 @@ $resultC = json_decode($responseC, true);
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
 

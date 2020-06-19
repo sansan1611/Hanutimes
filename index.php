@@ -26,21 +26,28 @@
 
 <body>
 
-	<?php
-	if (!isset($_GET['page'])) {
-		$page = 1;
-	} else {
-		$page = $_GET['page'];
-	}
+	
+<?php
+if(!isset($_GET['page'])){ $page=1;}
+else{$page= $_GET['page'];}
 
-	$url = "http://localhost/hanutimes/api/home.php?page=$page";
+$url = "http://localhost/hanutimes/api/get_all_news.php?page=$page";
 
-	$news = curl_init($url);
-	curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
-	$response = curl_exec($news);
+$news = curl_init($url);
+curl_setopt($news,CURLOPT_RETURNTRANSFER,true);
+$response = curl_exec($news);
 
-	$result = json_decode($response, true);
-	// var_dump($response);
+$result = json_decode($response, true);
+// var_dump($result);
+
+$urlC = "http://localhost/hanutimes/api/get_all_category.php";
+
+$category = curl_init($urlC);
+curl_setopt($category,CURLOPT_RETURNTRANSFER,true);
+$responseC = curl_exec($category);
+
+$resultC  = json_decode($responseC, true);
+// var_dump($resultC);
 
 	?>
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -52,9 +59,9 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="about.html" class="nav-link">Team</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+					<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="about.php" class="nav-link">Team</a></li>
+					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -96,23 +103,21 @@
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3>Categories</h3>
-							<li><a href="cine?id=1">Cine<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="music?id=2">Music<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="lifestyle?id=3">Lifestyle<span class="ion-ios-arrow-forward"></span></a></li>
-							<li><a href="food?id=4">Food<span class="ion-ios-arrow-forward"></span></a></li>
-						</div>
+							<?php foreach($resultC as $key=>$value): ?>	
+							<li><a href="category.php?id=<?php echo $value['id']?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
+							<?php endforeach; ?>	</div>
 					</div>
 
 
 				</div>
 
 
-
+				<div class="col-lg-9 ftco-animate">
 						<?php foreach ($result as $key => $value) : ?>
 							<div class="case">
 								<div class="row">
 									<div class="col-md-6 col-lg-6 col-xl-6 d-flex">
-										<a href='single.php?id=<?php echo $value['id']; ?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');">
+									<a href='news_single.php?id=<?php echo $value['id'];?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');">
 										</a>
 									</div>
 									<div class="col-md-6 col-lg-6 col-xl-6 d-flex">
@@ -128,9 +133,9 @@
 												
 												<p class="mb-1"><?php echo $mos . ' ' . $day . ', ' . $yr ?></p>
 											</div>
-											<h3 class="heading mb-3"><a href="blog-single.html"><?php echo $value['title']; ?></a></h3>
+											<h3 class="heading mb-3"><a href='news_single.php?id=<?php echo $value['id'];?>'><?php echo $value['title']; ?></a></h3>
 											<p><?php echo $value['short_intro']; ?></p>
-											<p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+											<p>  <a href='news_single.php?id=<?php echo $value['id'];?>' class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
 
 
 

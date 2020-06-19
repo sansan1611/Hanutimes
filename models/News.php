@@ -14,6 +14,7 @@ class News
   public $author;
   public $content;
   public $cat_id;
+  public $tag_id;
 
   // Constructor with DB
   public function __construct($db)
@@ -86,6 +87,41 @@ public function read_all_news_cat_page( $id,$start,$limit)
 }
 
 
+
+public function read_all_news_by_tag($id)
+{
+  $query = "SELECT *
+  FROM news
+  LEFT JOIN tagnews
+  ON news.id = tagnews.news_id
+  WHERE tag_id= ".$id.";";
+
+  // Prepare statement
+  $stmt = $this->conn->prepare($query);
+  // Execute query
+  $stmt->execute();
+
+  return $stmt;
+
+}
+
+public function read_all_news_tag_page( $id,$start,$limit)
+{
+  // Create query
+  $query = "SELECT * FROM news LEFT JOIN tagnews
+  ON news.id = tagnews.news_id
+  WHERE tag_id= $id ORDER BY created_date DESC LIMIT " .$start.
+  ', '. $limit;
+
+  // Prepare statement
+  $stmt = $this->conn->prepare($query);
+  // Execute query
+  $stmt->execute();
+
+  return $stmt;
+}
+
+
   // Get Single Post
   public function read_single()
   {
@@ -111,6 +147,9 @@ public function read_all_news_cat_page( $id,$start,$limit)
     $this->pic= $row['pic'];
     $this->author= $row['author'];
     $this->cat_id= $row['cat_id'];
+    $this->tag_id= $row['tag_id'];
   }
+
+  
 
 }
