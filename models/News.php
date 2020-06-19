@@ -52,14 +52,20 @@ class News
 
 //Get all news of a category
 // Get Posts
-public function read_all_news_cat($id)
+public function read_all_news_cat($category)
 {
   // Create query
-  $query = "SELECT *
+  $query = "SELECT news.id, news.title,
+  news.content,
+  news.created_date ,
+  news.pic ,
+  news.author ,
+  news.cat_id,
+  news.short_intro
   FROM news
   LEFT JOIN category
   ON news.cat_id = category.id
-  WHERE cat_id= ".$id.";";
+  WHERE cat_id= $category;";
 
   // Prepare statement
   $stmt = $this->conn->prepare($query);
@@ -69,12 +75,18 @@ public function read_all_news_cat($id)
   return $stmt;
 }
   
-public function read_all_news_cat_page( $id,$start,$limit)
+public function read_all_news_cat_page( $category,$start,$limit)
 {
   // Create query
-  $query = "SELECT * FROM news LEFT JOIN category 
+  $query = "SELECT news.id, news.title,
+  news.content,
+  news.created_date ,
+  news.pic ,
+  news.author ,
+  news.cat_id,
+  news.short_intro FROM news LEFT JOIN category 
   ON news.cat_id = category.id 
-  WHERE cat_id= $id ORDER BY created_date DESC LIMIT " .$start.
+  WHERE cat_id= $category ORDER BY created_date DESC LIMIT " .$start.
   ', '. $limit;
 
   // Prepare statement
