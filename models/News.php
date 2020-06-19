@@ -111,5 +111,19 @@ public function read_all_news_cat_page( $id,$start,$limit)
     $this->author= $row['author'];
     $this->cat_id= $row['cat_id'];
   }
+  public function read_news_related($id)
+  {
+    // Create query
+    $query = "SELECT `news`.`id`,`news`.`title`,`news`.`author`,`news`.`created_date`,`news`.`pic` FROM `news` 
+              LEFT JOIN `tagnews` ON `news`.`id` = `tagnews`.`news_id` 
+              RIGHT JOIN `tag` ON `tag`.`id` = `tagnews`.`tag_id`
+              WHERE `tag`.`id`=".$id;
 
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
 }
