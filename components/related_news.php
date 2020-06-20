@@ -8,7 +8,7 @@ $response = curl_exec($tag);
 
 $result = json_decode($response, true);
 foreach ($result as $key => $value) :
-    $tag_id = $result[0]['id'];
+    $tag_id = $value['id'];
     $urlR = "http://localhost/Hanutimes/api/read_news_related.php?id=$tag_id";
     $news = curl_init($urlR);
     curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
