@@ -14,6 +14,7 @@ class News
   public $author;
   public $content;
   public $cat_id;
+  public $tag_id;
 
   // Constructor with DB
   public function __construct($db)
@@ -34,13 +35,31 @@ class News
 
     return $stmt;
   }
-  	
-  public function read_page( $start,$limit)
+
+  public function read_page($start, $limit)
   {
     // Create query
     $query = "SELECT * FROM " . $this->table . " ORDER BY
-    created_date DESC LIMIT " .$start.
-    ', '. $limit;
+    created_date DESC LIMIT " . $start .
+      ', ' . $limit;
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
+  //Get all news of a category
+  // Get Posts
+  public function read_all_news_cat($id)
+  {
+    // Create query
+    $query = "SELECT `news`.`id`,`news`.`title`, `news`.`short_intro`, `news`.`author`,`news`.`created_date`,`news`.`pic`
+              FROM news
+              LEFT JOIN category
+              ON news.cat_id = category.id
+              WHERE cat_id= " . $id . ";";
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
@@ -50,52 +69,60 @@ class News
     return $stmt;
   }
 
-//Get all news of a category
-// Get Posts
-public function read_all_news_cat($category)
-{
-  // Create query
-  $query = "SELECT news.id, news.title,
-  news.content,
-  news.created_date ,
-  news.pic ,
-  news.author ,
-  news.cat_id,
-  news.short_intro
-  FROM news
-  LEFT JOIN category
-  ON news.cat_id = category.id
-  WHERE cat_id= $category;";
+  public function read_all_news_cat_page($id, $start, $limit)
+  {
+    // Create query
+    $query = "SELECT `news`.`id`,`news`.`title`, `news`.`short_intro`, `news`.`author`,`news`.`created_date`,`news`.`pic` 
+              FROM news 
+              LEFT JOIN category 
+              ON news.cat_id = category.id 
+              WHERE cat_id = $id 
+              ORDER BY created_date 
+              DESC LIMIT " . $start . ', ' . $limit;
 
-  // Prepare statement
-  $stmt = $this->conn->prepare($query);
-  // Execute query
-  $stmt->execute();
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
 
-  return $stmt;
-}
-  
-public function read_all_news_cat_page( $category,$start,$limit)
-{
-  // Create query
-  $query = "SELECT news.id, news.title,
-  news.content,
-  news.created_date ,
-  news.pic ,
-  news.author ,
-  news.cat_id,
-  news.short_intro FROM news LEFT JOIN category 
-  ON news.cat_id = category.id 
-  WHERE cat_id= $category ORDER BY created_date DESC LIMIT " .$start.
-  ', '. $limit;
+    return $stmt;
+  }
 
-  // Prepare statement
-  $stmt = $this->conn->prepare($query);
-  // Execute query
-  $stmt->execute();
 
-  return $stmt;
-}
+
+  public function read_all_news_by_tag($id)
+  {
+    $query = "SELECT *
+              FROM news
+              LEFT JOIN tagnews
+              ON news.id = tagnews.news_id
+              WHERE tag_id= " . $id . ";";
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
+
+  public function read_all_news_tag_page($id, $start, $limit)
+  {
+    // Create query
+    $query = "SELECT * FROM news 
+              LEFT JOIN tagnews
+              ON news.id = tagnews.news_id 
+              WHERE tag_id = $id 
+              ORDER BY created_date 
+              DESC LIMIT " . $start . ', ' . $limit;
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
 
 
   // Get Single Post
@@ -117,11 +144,11 @@ public function read_all_news_cat_page( $category,$start,$limit)
     $this->id = $row['id'];
     $this->title = $row['title'];
     $this->content = $row['content'];
-    $this->short_intro= $row['short_intro'];
-    $this->created_date= $row['created_date'];
-    $this->pic= $row['pic'];
-    $this->author= $row['author'];
-    $this->cat_id= $row['cat_id'];
+    $this->short_intro = $row['short_intro'];
+    $this->created_date = $row['created_date'];
+    $this->pic = $row['pic'];
+    $this->author = $row['author'];
+    $this->cat_id = $row['cat_id'];
   }
   public function read_news_related($id)
   {

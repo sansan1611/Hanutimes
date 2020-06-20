@@ -52,7 +52,6 @@ class Comment{
   }
 
   return false;
-    
   }
 }
 ?>

@@ -37,7 +37,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link">Team</a></li>
-          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+          <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -49,72 +49,35 @@
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
-          <h1 class="mb-3 bread">News Single</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>News Single <i class="ion-ios-arrow-forward"></i></span></p>
+          <h1 class="mb-3 bread">Contact us</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About <i class="ion-ios-arrow-forward"></i></span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="ftco-section ftco-degree-bg">
+  <section class="ftco-section contact-section">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 ftco-animate">
-
-          <?php include('components/news.php') ?>
-
-          <div class="tag-widget post-tag-container mb-5 mt-5">
-            <?php include('components/tags_of_news.php') ?>
-          </div>
-
-
-          <!-- Creat comment form -->
-          <div class="pt-5 mt-5">
-            <h3 class="mb-5">Comments</h3>
-            <ul class="comment-list">
-              <?php include('components/comment.php') ?>
-            </ul>
-            <div class="comment-form-wrap pt-5">
-              <h3 class="mb-5">Leave a comment</h3>
-              <form action="#" class="p-5 bg-light">
-                <div class="form-group">
-                  <label for="name">Name *</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
-                </div>
-              </form>
-            </div>
-          </div>
-
-        </div> <!-- .col-md-8 -->
-
-        <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
-          <?php include('components/category-bar.php') ?>
-
-          <!-- recent blog -->
-          <div class="sidebar-box ftco-animate">
-            <h3>Related News</h3>
-            <?php include('components/related_news.php') ?>
-          </div>
-          <!-- end recent blog -->
-
-          <?php include('components/all_tags.php') ?>
-
-          <!-- <div class="sidebar-box ftco-animate">
-            <h3>Paragraph</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-          </div> -->
+      <div class="row d-flex mb-5 contact-info">
+        <div class="col-md-12 mb-4">
+          <h2 class="h3">Contact Information</h2>
         </div>
-
+        <div class="w-100"></div>
+        <div class="col-md-3">
+          <p><span>Address:</span> KM9, Nguyen Trai St., Hanoi</p>
+        </div>
+        <div class="col-md-3">
+          <p><span>Youtube</span> <a href="#">CodeForFun Team CodeDemo</a></p>
+        </div>
+        <div class="col-md-3">
+          <p><span>Email:</span> <a href="mailto:info@yoursite.com">hanutimes@email.com</a></p>
+        </div>
+        <div class="col-md-3">
+          <p><span>Website</span> <a href="index.html">hanutime.IWS.CodeForFun</a></p>
+        </div>
       </div>
     </div>
-  </section> <!-- .section -->
+  </section>
 
   <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
