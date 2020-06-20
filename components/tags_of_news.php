@@ -11,7 +11,11 @@ $result = json_decode($response, true);
 ?>
 
 <div class="tagcloud">
-    <?php foreach ($result as $key => $value) : ?>
-        <a href="tag.php?id=<?php echo $value['id']; ?>" class="tag-cloud-link"><?php echo $value['tag'] ?></a>
-    <?php endforeach; ?>
+    <?php if ($result['tag'] == NULL) {
+        echo '~~';
+    } else {
+        foreach ($result as $key => $value) : ?>
+            <a href="tag.php?id=<?php echo $value['id']; ?>" class="tag-cloud-link"><?php echo $value['tag'] ?></a>
+    <?php endforeach;
+    } ?>
 </div>

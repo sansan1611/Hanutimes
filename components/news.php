@@ -11,7 +11,7 @@ $result = json_decode($response, true);
 ?>
 
 <p class="mb-5">
-    <img src="images/<?php echo $result['pic']; ?>.jpg" alt="" class="img-fluid">
+    <img src="images/news-pics/pic (<?php echo $result['pic']; ?>).jpg" alt="" class="img-fluid">
 </p>
 <h6>
     <?php $date = explode('-', $result['created_date']);
@@ -22,4 +22,7 @@ $result = json_decode($response, true);
 <h2 class="mb-3"><?php echo $result['title']; ?></h2>
 
 <!-- phân tách thằng content, chưa xử lí được. Không tìm đc cách chia đoạn -->
-<p class="news-content"><?php echo $result['content']; ?></p>
+<p class="news-content" style="color: #000; font-weight: 500;"><?php echo $result['short_intro'] ?></p>
+<?php foreach ($result['content'] as $key => $value) : ?>
+    <p class="news-content"><?php echo $value?></p>
+<?php endforeach; ?>

@@ -24,7 +24,7 @@ $total_page = ceil($num / $limit);
 //xem trang có vượt giới hạn không:
 if (isset($_GET["page"])) $page = $_GET["page"]; //nếu biến $_GET["page"] tồn tại thì trang hiện tại là trang $_GET["page"]
 if ($page < 1) $page = 1; //nếu trang hiện tại nhỏ hơn 1 thì gán bằng 1
-if ($page > $total_page) $page = $total_page; //nếu trang hiện tại vượt quá số trang được chia thì sẽ bằng trang cuối cùng
+if ($page > $total_page) {$page = $total_page;} //nếu trang hiện tại vượt quá số trang được chia thì sẽ bằng trang cuối cùng
 
 //tính start (vị trí bản ghi sẽ bắt đầu lấy):
 $start = ($page - 1) * $limit;
@@ -70,5 +70,4 @@ if ($num > 0) {
         array('message' => 'No News Found')
 
     );
-    print_r($resultA);
 }

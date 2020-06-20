@@ -9,7 +9,7 @@
   $id= $_GET['id'];
   // Instantiate DB & connect
   $database = new Database();
-  $db = $database->connect();
+  $db = $database->connect(); 
 
   // Instantiate blog post object
   $comments = new Comment($db);
@@ -29,6 +29,7 @@
       
       $post_item = array(
         'id' => $id,
+        'name' => $name,
         'comment' => $comment,
         'news_id' => html_entity_decode($news_id)
       );

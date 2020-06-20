@@ -50,7 +50,7 @@
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
           <h1 class="mb-3 bread">News Single</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>News Single <i class="ion-ios-arrow-forward"></i></span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>News Single</span></p>
         </div>
       </div>
     </div>
@@ -74,6 +74,7 @@
             <ul class="comment-list">
               <?php include('components/comment.php') ?>
             </ul>
+
             <div class="comment-form-wrap pt-5">
               <h3 class="mb-5">Leave a comment</h3>
               <form action="#" class="p-5 bg-light">
@@ -97,14 +98,12 @@
         <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
           <?php include('components/category-bar.php') ?>
 
-          <!-- recent blog -->
+          <?php include('components/all_tags.php') ?>
+
           <div class="sidebar-box ftco-animate">
             <h3>Related News</h3>
             <?php include('components/related_news.php') ?>
           </div>
-          <!-- end recent blog -->
-
-          <?php include('components/all_tags.php') ?>
 
           <!-- <div class="sidebar-box ftco-animate">
             <h3>Paragraph</h3>

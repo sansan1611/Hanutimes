@@ -16,6 +16,7 @@
 
   // Blog post query
   $result = $tags->read_all_tag_of_a_news($id);
+  print_r($result);
   // Get row count
   $num = $result->rowCount();
   // Check if any posts

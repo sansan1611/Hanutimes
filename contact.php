@@ -50,7 +50,7 @@
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
           <h1 class="mb-3 bread">Contact us</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About <i class="ion-ios-arrow-forward"></i></span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact</span></p>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@
           <p><span>Email:</span> <a href="mailto:info@yoursite.com">hanutimes@email.com</a></p>
         </div>
         <div class="col-md-3">
-          <p><span>Website</span> <a href="index.html">hanutime.IWS.CodeForFun</a></p>
+          <p><span>Website</span> <a href="index.php">IWS.CodeForFun-team/Hanutimes</a></p>
         </div>
       </div>
     </div>
