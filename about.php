@@ -50,7 +50,7 @@
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
           <h1 class="mb-3 bread">About</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About <i class="ion-ios-arrow-forward"></i></span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About</span></p>
         </div>
       </div>
     </div>
@@ -60,8 +60,9 @@
     <div class="container">
       <div class="row d-flex">
         <div class="col-md-6 d-flex">
-          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(images/about.jpg);">
-            <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(images/about/about2.jpg);">
+            <a href="https://www.youtube.com/watch?v=zdPlDBSxM2U" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+            <!-- <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center"> -->
               <span class="icon-play"></span>
             </a>
           </div>
@@ -81,7 +82,7 @@
                     <a class="nav-link py-2" data-toggle="tab" href="#home2">Our Vision</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link py-2 mb-md-0 mb-2" data-toggle="tab" href="#home3">Future Works</a>
+                    <a class="nav-link py-2 mb-md-0 mb-2" data-toggle="tab" href="#home3">Licence</a>
                   </li>
                 </ul>
                 <div class="tab-content bg-light rounded mt-2">
@@ -89,10 +90,12 @@
                     <p>Make a website for displying news. User can read news, explore news by category, by tag and comment on the news.</p>
                   </div>
                   <div class="tab-pane container p-0 fade" id="home2">
-                    <p>Our team web site is fixed based on an existing bootstrap online template from Colorlib.</p>
+                    <p>Upgrade this web application for more complicated functions.</p>
+                    <!-- <p>Our team web site is fixed based on an existing bootstrap online template from Colorlib.</p> -->
                   </div>
                   <div class="tab-pane container p-0 fade" id="home3">
-                    <p>Upgrade this web application for more complicated functions.</p>
+                    <p>Our team website is built and creatively based on an existing bootstrap online template from @Colorlib.</p>
+                    <!-- <p>Upgrade this web application for more complicated functions.</p> -->
                   </div>
                 </div>
               </div>
@@ -119,10 +122,10 @@
                 <div class="text">
                   <!-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
                   <div class="d-flex align-items-center">
-                    <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    <div class="user-img" style="background-image: url(images/about/hue.jpg)"></div>
                     <div class="pl-3">
                       <p class="name">Tran Thi Hue</p>
-                      <span class="position">...</span>
+                      <span class="position">Leader & Coder</span>
                     </div>
                   </div>
                 </div>
@@ -133,10 +136,10 @@
                 <div class="text">
                   <!-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
                   <div class="d-flex align-items-center">
-                    <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    <div class="user-img" style="background-image: url(images/about/huong.jpg)"></div>
                     <div class="pl-3">
                       <p class="name">Tran Thi Mai Huong</p>
-                      <span class="position">...</span>
+                      <span class="position">Data Prepare and Code</span>
                     </div>
                   </div>
                 </div>
@@ -147,10 +150,10 @@
                 <div class="text">
                   <!-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
                   <div class="d-flex align-items-center">
-                    <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                    <div class="user-img" style="background-image: url(images/about/quynh.jpg)"></div>
                     <div class="pl-3">
                       <p class="name">Truong Ngoc Quynh</p>
-                      <span class="position">...</span>
+                      <span class="position">Coder & Refactor</span>
                     </div>
                   </div>
                 </div>

@@ -19,11 +19,14 @@ $news->id = isset($_GET['id']) ? $_GET['id'] : die();
 // Get post
 $news->read_single();
 
+$content_array = explode(PHP_EOL, $news->content);
+// print_r($content_array);
+
 // Create array
 $post_arr = array(
   'id' => $news->id,
   'title' => html_entity_decode($news->title),
-  'content' => html_entity_decode($news->content),
+  'content' => $content_array,
   'created_date' => html_entity_decode($news->created_date),
   'pic' => html_entity_decode($news->pic),
   'author' => html_entity_decode($news->author),

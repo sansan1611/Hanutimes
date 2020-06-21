@@ -49,7 +49,6 @@ if ($num > 0) {
     $post_item = array(
       'id' => $id,
       'title' => $title,
-      // 'content' => html_entity_decode($content),
       'created_date' => html_entity_decode($created_date),
       'pic' => html_entity_decode($pic),
       'author' => html_entity_decode($author),

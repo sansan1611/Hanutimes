@@ -8,22 +8,25 @@ $response = curl_exec($tag);
 
 $result = json_decode($response, true);
 
+
 ?>
 
 <?php 
-if ($result['message'] = 'No Comments Found') {
-    print_r('No comment yet!');
-} else {
+if ($result['message'] != NULL) {
+    echo $result['message'];
+}
+else {
 foreach ($result as $key => $value) :
 ?>
         <li class="comment">
             <div class="vcard bio">
-                <img src="images/01.jpg" alt="Image placeholder">
+                <img src="images/comment/comment (<?php echo(rand(1,8));?>).jpg" alt="Image placeholder">
             </div>
             <div class="comment-body">
-                <p>'. $value['comment'] .'</p>
-                <p><a href="#" class="reply">Delete</a></p>
+                <h3><?php echo $value['name'] ?></h3>
+                <p class="comment-content" ><?php echo $value['comment'] ?></p>
+                <!-- <p><a href="#" class="reply">Delete</a></p> -->
             </div>
-        </li>;
+        </li>
 <?php 
 endforeach; } ?>

@@ -13,23 +13,14 @@ foreach ($result as $key => $value) :
     $news = curl_init($urlR);
     curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
     $responseR = curl_exec($news);
-
     $resultR = json_decode($responseR, true);
 endforeach;
-// $tag_id = $result[0]['id'];
-// $urlR = "http://localhost/Hanutimes/api/read_news_related.php?id=$tag_id";
-
-// $news = curl_init($urlR);
-// curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
-// $responseR = curl_exec($news);
-
-// $resultR = json_decode($responseR, true);
 $i = 0;
 ?>
 <?php foreach ($resultR as $key => $value) :
     if ($value['id'] != $id) { ?>
         <div class="block-21 mb-4 d-flex">
-            <a class="blog-img mr-4" style="background-image: url('images/<?php echo $value['pic']; ?>.jpg');"></a>
+            <a class="blog-img mr-4" style="background-image: url('images/news-pics/pic (<?php echo $value['pic']; ?>).jpg');"></a>
             <div class="text">
                 <h3 class="heading"><a href='news_single.php?id=<?php echo $value['id']; ?>'><?php echo $value['title']; ?></a></h3>
                 <div class="meta">
