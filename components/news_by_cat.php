@@ -83,14 +83,14 @@ $total_page = $result[0]['total_page'];
             <ul>
                 <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="category.php?id=<?php echo $id; ?>&&page=<?php echo ($page - 1); ?>">&lt;</a></li>
                 <?php if ($pagemin != 1) {
-                    echo '<li><a href=# style="border: none;">.....</a></li>';
+                    echo '<li><a href=# style="border: none; ">. . .</a></li>';
                 } ?>
                 <?php for ($i = $pagemin; $i <= $pagemax; $i++) { ?>
                     <li <?php if ($i == $page) echo "class='active'"; ?>>
                         <a href="category.php?id=<?php echo $id; ?>&&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                 <?php } ?>
                 <?php if ($pagemax != $total_page) {
-                    echo '<li><a href=# style="border: none;">.....</a></li>';
+                    echo '<li><a href=# style="border: none;">. . .</a></li>';
                 } ?>
                 <li class="next-btn" <?php if ($page >= $pagemax) echo 'style = "display: none;"' ?>><a href="category.php?id=<?php echo $id; ?>&&page=<?php echo ($page + 1); ?>">&gt;</a></li>
 
