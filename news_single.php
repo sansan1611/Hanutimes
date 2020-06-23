@@ -74,25 +74,7 @@
             <ul class="comment-list">
               <?php include('components/comment.php') ?>
             </ul>
-
-            <div class="comment-form-wrap pt-5">
-              <h3 class="mb-5">Leave a comment</h3>
-              <form action="#" class="p-5 bg-light">
-                <div class="form-group">
-                  <label for="name">Name *</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
-                </div>
-              </form>
-            </div>
-          </div>
-
+            <?php include('components/show_comment_form.php') ?>
         </div> <!-- .col-md-8 -->
 
         <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
