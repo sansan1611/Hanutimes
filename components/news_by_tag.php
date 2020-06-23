@@ -57,7 +57,7 @@ if ($result['message'] != NULL) {
 <div class="row mt-5">
     <div class="col text-center">
         <div class="block-27">
-            <?php 
+            <?php
             $range = 5; // Số trang hiển thị
             $pagelimit = ($range - 1) / 2; // Phân chia hiển thị , ví dụ số được chọn ở giữa
             $pagemax = $range;
@@ -87,6 +87,7 @@ if ($result['message'] != NULL) {
                 $pagemax = $total_page;
             } ?>
             <ul>
+                <li class="first-btn"><a href="tag.php?id=<?php echo $id; ?>&&page=1" style="border: none; <?php if ($page == $pagemin) echo 'display: none;' ?>">&lt; &lt;</a></li>
                 <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="tag.php?id=<?php echo $id ?>&&page=<?php echo ($page - 1); ?>">&lt;</a></li>
                 <?php if ($pagemin != 1) {
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
@@ -99,7 +100,7 @@ if ($result['message'] != NULL) {
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
                 } ?>
                 <li class="next-btn" <?php if ($page >= $pagemax) echo 'style = "display: none;"' ?>><a href="tag.php?id=<?php echo $id; ?>&&page=<?php echo ($page + 1); ?>">&gt;</a></li>
-
+                <li class="last-btn"><a href="tag.php?id=<?php echo $id; ?>&&page=<?php echo $total_page; ?>" style="border: none; <?php if ($page == $pagemax) echo 'display: none;' ?>">&gt; &gt;</a></li>
             </ul>
         </div>
     </div>

@@ -82,6 +82,7 @@ $total_page = $result[0]['total_page'];
                 $pagemax = $total_page;
             } ?>
             <ul>
+                <li class="first-btn"><a href="index.php?page=1" style ="border: none; <?php if ($page == $pagemin) echo 'display: none;' ?>">&lt; &lt;</a></li>
                 <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page - 1); ?>">&lt;</a></li>
                 <?php if ($pagemin != 1) {
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
@@ -94,7 +95,7 @@ $total_page = $result[0]['total_page'];
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
                 } ?>
                 <li class="next-btn" <?php if ($page >= $pagemax) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page + 1); ?>">&gt;</a></li>
-
+                <li class="last-btn"><a href="index.php?page=<?php echo $total_page; ?>" style ="border: none; <?php if ($page == $pagemax) echo 'display: none;' ?>">&gt; &gt;</a></li>
             </ul>
         </div>
     </div>

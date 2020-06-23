@@ -34,8 +34,8 @@ $i = 0;
                         $mos = date("F", mktime(0, 0, 0, $date[1], 10));
                         $yr = $date[0];
                         ?>
-                        <div><a href="#"><span class="icon-calendar"></span><?php echo $mos . '. ' . $day . ', ' . $yr ?></a></div>
-                        <div><a href="#"><span class="icon-person"></span><?php echo $value['author'] ?></a></div>
+                        <div><a><span class="icon-calendar"></span><?php echo ' ' . $mos . '. ' . $day . ', ' . $yr ?></a></div>
+                        <div><a><span class="icon-person"></span><?php echo $value['author'] ?></a></div>
                     </div>
                 </div>
             </div>
