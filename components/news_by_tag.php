@@ -24,7 +24,7 @@ if ($result['message'] != NULL) {
         <div class="case">
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <a href='news_single.php?id=<?php echo $value['id']; ?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/news-pics/pic (<?php echo $value['pic']; ?>).jpg');">
+                    <a href='news_single.php?id=<?php echo $value['news_id']; ?>' class="img w-100 mb-3 mb-md-0" style="background-image: url('images/news-pics/pic (<?php echo $value['pic']; ?>).jpg');">
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6 d-flex">
