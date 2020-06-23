@@ -37,7 +37,7 @@ class Comment
     $query = "INSERT INTO
               " . $this->table . "
           SET
-             name=:name, news_id=:news_id";
+             name=:name, comment=:comment, news_id=:news_id";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -45,11 +45,11 @@ class Comment
     // sanitize
     $this->name = htmlspecialchars(strip_tags($this->name));
     $this->news_id = htmlspecialchars(strip_tags($this->news_id));
-
+    $this->comment = htmlspecialchars(strip_tags($this->comment));
     // bind values
     $stmt->bindParam(":name", $this->name);
     $stmt->bindParam(":news_id", $this->news_id);
-
+    $stmt->bindParam(":comment", $this->comment);
     // execute query
     if ($stmt->execute()) {
       return true;
