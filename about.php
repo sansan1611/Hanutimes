@@ -125,7 +125,7 @@
                     <div class="user-img" style="background-image: url(images/about/hue.jpg)"></div>
                     <div class="pl-3">
                       <p class="name">Tran Thi Hue</p>
-                      <span class="position">Leader & Coder</span>
+                      <span class="position">Leader, Database Designer & Developer</span>
                     </div>
                   </div>
                 </div>
@@ -139,7 +139,7 @@
                     <div class="user-img" style="background-image: url(images/about/huong.jpg)"></div>
                     <div class="pl-3">
                       <p class="name">Tran Thi Mai Huong</p>
-                      <span class="position">Data Prepare and Code</span>
+                      <span class="position">Database Designer & Developer</span>
                     </div>
                   </div>
                 </div>
@@ -153,7 +153,7 @@
                     <div class="user-img" style="background-image: url(images/about/quynh.jpg)"></div>
                     <div class="pl-3">
                       <p class="name">Truong Ngoc Quynh</p>
-                      <span class="position">Coder & Refactor</span>
+                      <span class="position">UI Designer, Developer & Refactor</span>
                     </div>
                   </div>
                 </div>
