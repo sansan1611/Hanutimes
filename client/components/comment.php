@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$url = "http://localhost/Hanutimes/api/get_all_comment_of_a_news.php?id=$id";
+$url = "http://localhost/Hanutimes/webservices/api/get_all_comment_of_a_news.php?id=$id";
 
 $tag = curl_init($url);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);

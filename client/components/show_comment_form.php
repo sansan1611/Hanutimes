@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$url = "http://localhost/hanutimes/api/get_a_news.php?id=$id";
+$url = "http://localhost/hanutimes/webservices/api/get_a_news.php?id=$id";
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);

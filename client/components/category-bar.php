@@ -1,5 +1,5 @@
 <?php
-$urlC = "http://localhost/hanutimes/api/get_all_category.php";
+$urlC = "http://localhost/hanutimes/webservices/api/get_all_category.php";
 
 $category = curl_init($urlC);
 curl_setopt($category, CURLOPT_RETURNTRANSFER, true);

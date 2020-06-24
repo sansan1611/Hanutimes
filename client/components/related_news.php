@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$url = "http://localhost/Hanutimes/api/get_all_tags_of_a_news.php?id=$id";
+$url = "http://localhost/Hanutimes/webservices/api/get_all_tags_of_a_news.php?id=$id";
 
 $tag = curl_init($url);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
@@ -9,7 +9,7 @@ $response = curl_exec($tag);
 $result = json_decode($response, true);
 foreach ($result as $key => $value) :
     $tag_id = $value['id'];
-    $urlR = "http://localhost/Hanutimes/api/read_news_related.php?id=$tag_id";
+    $urlR = "http://localhost/Hanutimes/webservices/api/read_news_related.php?id=$tag_id";
     $news = curl_init($urlR);
     curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
     $responseR = curl_exec($news);

@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost/hanutimes/api/get_all_tags.php";
+$url = "http://localhost/hanutimes/webservices/api/get_all_tags.php";
 
 $tag = curl_init($url);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);

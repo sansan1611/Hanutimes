@@ -5,7 +5,7 @@ if (!isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 $id = $_GET['id'];
-$url = "http://localhost/hanutimes/api/get_all_news_by_tags.php?id=$id&&page=$page";
+$url = "http://localhost/hanutimes/webservices/api/get_all_news_by_tags.php?id=$id&&page=$page";
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);

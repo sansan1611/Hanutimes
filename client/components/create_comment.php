@@ -2,7 +2,7 @@
   $data = array('name' => $_POST['name'], 'comment' => $_POST['comment'], 'news_id' => $_POST['news_id']);
   $data_string = json_encode($data);
   $news_id= $_POST['news_id'];
-    $curl = curl_init('http://localhost/hanutimes/api/create_a_new_comment.php');
+    $curl = curl_init('http://localhost/hanutimes/webservices/api/create_a_new_comment.php');
     
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
@@ -15,5 +15,5 @@
     $response = curl_exec($curl);
     echo $data_string, $response;
     curl_close($curl);
-    header("Location: http://localhost/hanutimes/news_single.php?id={$news_id}");
+    header("Location: http://localhost/hanutimes/client/news_single.php?id={$news_id}");
     ?>

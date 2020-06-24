@@ -4,8 +4,8 @@ if (!isset($_GET['page'])) {
 } else {
     $page = $_GET['page'];
 }
-
-$url = "http://localhost/hanutimes/api/get_all_news.php?page=$page";
+$id = $_GET['id'];
+$url = "http://localhost/hanutimes/webservices/api/get_all_news_of_a_category.php?id=$id&&page=$page";
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
@@ -48,16 +48,15 @@ $total_page = $result[0]['total_page'];
     </div>
 <?php endforeach; ?>
 
-
 <div class="row mt-5">
     <div class="col text-center">
         <div class="block-27">
             <?php
-            $range = 5;
-            $pagelimit = ($range - 1) / 2; 
+            $range = 5; // Số trang hiển thị
+            $pagelimit = ($range - 1) / 2; // Phân chia hiển thị , ví dụ số được chọn ở giữa
             $pagemax = $range;
             if ($page - $pagelimit < 1) {
-                if ($total_page < $range) 
+                if ($total_page < $range) // Dành cho cái số trang nhỏ hơn số trang hiển thị sẽ không chạy từ 1 -  đến tổng số trang hiển thị
                 {
                     $pagemax = $total_page;
                 }
@@ -68,7 +67,7 @@ $total_page = $result[0]['total_page'];
                     $pagemax = $page + $pagelimit;
                 }
                 if ($page + $pagelimit > $total_page) {
-                    if ($total_page < $range) 
+                    if ($total_page < $range) // Trường hợp số trang nhỏ hơn số trang hiển thị 
                     {
                         $pagemin = 1;
                         $pagemax = $sotrang;
@@ -82,18 +81,18 @@ $total_page = $result[0]['total_page'];
                 $pagemax = $total_page;
             } ?>
             <ul>
-                <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page - 1); ?>">&lt;</a></li>
+                <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="category.php?id=<?php echo $id; ?>&&page=<?php echo ($page - 1); ?>">&lt;</a></li>
                 <?php if ($pagemin != 1) {
-                    echo '<li><a href=# style="border: none;">. . .</a></li>';
+                    echo '<li><a href=# style="border: none; ">. . .</a></li>';
                 } ?>
                 <?php for ($i = $pagemin; $i <= $pagemax; $i++) { ?>
-                    <li <?php if ($page == $i) echo "class='active'"; ?>>
-                        <a href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                    <li <?php if ($i == $page) echo "class='active'"; ?>>
+                        <a href="category.php?id=<?php echo $id; ?>&&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                 <?php } ?>
                 <?php if ($pagemax != $total_page) {
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
                 } ?>
-                <li class="next-btn" <?php if ($page >= $pagemax) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page + 1); ?>">&gt;</a></li>
+                <li class="next-btn" <?php if ($page >= $pagemax) echo 'style = "display: none;"' ?>><a href="category.php?id=<?php echo $id; ?>&&page=<?php echo ($page + 1); ?>">&gt;</a></li>
 
             </ul>
         </div>
