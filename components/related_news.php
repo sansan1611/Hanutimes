@@ -23,7 +23,7 @@ $i = 0;
 
 <div class="sidebar-box ftco-animate">
     <h3>Related News</h3>
-    <?php if ($news_arr[0]['id'] == NULL) {
+    <?php if ($news_arr[1]['id'] == null) {
         echo '<p style="font-size: 90%;"> OOps! No related news found!</p>';
     } else {
         foreach ($news_arr as $key => $value) :
