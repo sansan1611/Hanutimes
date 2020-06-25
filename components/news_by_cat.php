@@ -52,33 +52,24 @@ $total_page = $result[0]['total_page'];
     <div class="col text-center">
         <div class="block-27">
             <?php
-            $range = 5; // Số trang hiển thị
-            $pagelimit = ($range - 1) / 2; // Phân chia hiển thị , ví dụ số được chọn ở giữa
+            $range = 5;
+            $pagelimit = ($range - 1) / 2;
             $pagemax = $range;
-            if ($page - $pagelimit < 1) {
-                if ($total_page < $range) // Dành cho cái số trang nhỏ hơn số trang hiển thị sẽ không chạy từ 1 -  đến tổng số trang hiển thị
-                {
-                    $pagemax = $total_page;
-                }
+            if ($total_page <= $range) {
+                $pagemax = $total_page;
                 $pagemin = 1;
             } else {
-                if ($page + $pagelimit <= $total_page) {
-                    $pagemin = $page - $pagelimit;
-                    $pagemax = $page + $pagelimit;
-                }
-                if ($page + $pagelimit > $total_page) {
-                    if ($total_page < $range) // Trường hợp số trang nhỏ hơn số trang hiển thị 
-                    {
-                        $pagemin = 1;
-                        $pagemax = $sotrang;
+                if ($page - $pagelimit <= 1) {
+                    $pagemin = 1;
+                } else {
+                    if ($page + $pagelimit <= $total_page) {
+                        $pagemin = $page - $pagelimit;
+                        $pagemax = $page + $pagelimit;
                     } else {
                         $pagemin = $total_page - $range + 1;
                         $pagemax = $total_page;
                     }
                 }
-            }
-            if ($page + $pagelimit > $total_page) {
-                $pagemax = $total_page;
             } ?>
             <ul>
                 <li class="first-btn"><a href="category.php?id=<?php echo $id; ?>&&page=1" style="border: none; <?php if (($page <= 1) || ($total_page <= $range)) echo 'display: none;' ?>">&lt; &lt;</a></li>
