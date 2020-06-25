@@ -97,18 +97,6 @@
 
         <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
           <?php include('components/news-single-side-bar.php') ?>
-
-          <?php //include('components/all_tags.php') 
-          ?>
-
-          <?php //include('components/related_news.php') 
-          ?>
-
-
-          <!-- <div class="sidebar-box ftco-animate">
-            <h3>Paragraph</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-          </div> -->
         </div>
 
       </div>
