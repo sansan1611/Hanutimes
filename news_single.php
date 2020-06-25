@@ -96,14 +96,14 @@
         </div> <!-- .col-md-8 -->
 
         <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
-          <?php include('components/category-bar.php') ?>
+          <?php include('components/news-single-side-bar.php') ?>
 
-          <?php include('components/all_tags.php') ?>
+          <?php //include('components/all_tags.php') 
+          ?>
 
-          <div class="sidebar-box ftco-animate">
-            <h3>Related News</h3>
-            <?php include('components/related_news.php') ?>
-          </div>
+          <?php //include('components/related_news.php') 
+          ?>
+
 
           <!-- <div class="sidebar-box ftco-animate">
             <h3>Paragraph</h3>
