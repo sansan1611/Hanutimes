@@ -1,4 +1,5 @@
 <?php
+$id = $_GET['id'];
 $url = "http://localhost/hanutimes/api/get_all_tags.php";
 
 $tag = curl_init($url);
@@ -15,7 +16,7 @@ $result = json_decode($response, true);
     <div class="tagcloud">
         <?php 
         foreach ($result as $key => $value) : ?>
-            <a href="tag.php?id=<?php echo $value['id']; ?>" class="tag-cloud-link"><?php echo $value['content'] ?></a>
+            <a href="tag.php?id=<?php echo $value['id']; ?>" class="tag-cloud-link" <?php if ($value['id'] == $id) {echo 'style="border: 1px solid #000;"';} ?>><?php echo $value['content'] ?></a>
         <?php endforeach; ?>
     </div>
 </div>
