@@ -6,7 +6,7 @@ curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($tag);
 
 $result = json_decode($response, true);
-// var_dump($resultC);
+
 ?>
 
 

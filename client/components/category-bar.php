@@ -6,7 +6,7 @@ curl_setopt($category, CURLOPT_RETURNTRANSFER, true);
 $responseC = curl_exec($category);
 
 $resultC = json_decode($responseC, true);
-// var_dump($resultC);
+
 ?>
 
 <div class="sidebar-box ftco-animate">

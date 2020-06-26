@@ -63,16 +63,16 @@
           <h2 class="h3">Contact Information</h2>
         </div>
         <div class="w-100"></div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <p><span>Address:</span> KM9, Nguyen Trai St., Hanoi</p>
         </div>
-        <div class="col-md-3">
-          <p><span>Youtube</span> <a href="#">CodeForFun Team CodeDemo</a></p>
+        <div class="col-md-4">
+          <p><span>Youtube</span> <a href="#">CodeForFun CodeDemo</a></p>
         </div>
-        <div class="col-md-3">
-          <p><span>Email:</span> <a href="mailto:info@yoursite.com">hanutimes@email.com</a></p>
-        </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
+          <p><span>Email:</span> <a href="mailto:info@yoursite.com">CodeForFun@email.com</a></p>
+        </div> -->
+        <div class="col-md-4">
           <p><span>Website</span> <a href="index.php">IWS.CodeForFun-team/Hanutimes</a></p>
         </div>
       </div>

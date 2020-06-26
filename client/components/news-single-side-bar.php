@@ -20,7 +20,7 @@ $resultT = json_decode($responseT, true);
     <div class="categories">
         <h3>Categories</h3>
         <?php foreach ($resultC as $key => $value) : ?>
-            <li <?php //if ($value['id'] == $cat_id) {echo 'class="active"';} ?>><a href="category.php?id=<?php echo $value['id']; ?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
+            <li><a href="category.php?id=<?php echo $value['id']; ?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
         <?php endforeach; ?>
     </div>
 </div>
@@ -30,7 +30,7 @@ $resultT = json_decode($responseT, true);
     <div class="tagcloud">
         <?php 
         foreach ($resultT as $key => $value) : ?>
-            <a href="tag.php?id=<?php echo $value['id']; ?>" class="tag-cloud-link" <?php //if ($value['id'] == $id) {echo 'style="border: 1px solid #000;"';} ?>><?php echo $value['content'] ?></a>
+            <a href="tag.php?id=<?php echo $value['id']; ?>" class="tag-cloud-link"><?php echo $value['content'] ?></a>
         <?php endforeach; ?>
     </div>
 </div>

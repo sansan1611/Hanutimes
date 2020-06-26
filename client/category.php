@@ -60,8 +60,6 @@
 			<div class="row">
 				<div class="col-lg-3 sidebar pl-lg-5 ftco-animate">
 					<?php include('components/category-bar.php') ?>
-					<?php //include('components/all_tags.php') 
-					?>
 				</div>
 
 				<div class="col-lg-9 ftco-animate">

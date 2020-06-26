@@ -62,7 +62,6 @@
         <div class="col-md-6 d-flex">
           <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(images/about/about2.jpg);">
             <a href="https://www.youtube.com/watch?v=zdPlDBSxM2U" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-            <!-- <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center"> -->
               <span class="icon-play"></span>
             </a>
           </div>
@@ -91,11 +90,9 @@
                   </div>
                   <div class="tab-pane container p-0 fade" id="home2">
                     <p>Upgrade this web application for more complicated functions.</p>
-                    <!-- <p>Our team web site is fixed based on an existing bootstrap online template from Colorlib.</p> -->
                   </div>
                   <div class="tab-pane container p-0 fade" id="home3">
                     <p>Our team website is built and creatively based on an existing bootstrap online template from @Colorlib.</p>
-                    <!-- <p>Upgrade this web application for more complicated functions.</p> -->
                   </div>
                 </div>
               </div>
