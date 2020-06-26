@@ -56,10 +56,8 @@
 
     <section class="ftco-section">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-3 sidebar pl-lg-5 ftco-animate">
-                    ?>
                     <?php include('components/all_tags.php') ?>
                 </div>
 
