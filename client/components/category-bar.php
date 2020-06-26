@@ -13,7 +13,7 @@ $resultC = json_decode($responseC, true);
     <div class="categories">
         <h3>Categories</h3>
         <?php foreach ($resultC as $key => $value) : ?>
-            <li><a href="category.php?id=<?php echo $value['id']; ?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
+            <li <?php if ($value['id'] == $id) {echo 'class="active"';} ?>><a href="category.php?id=<?php echo $value['id']; ?>"><?php echo $value['category'] ?><span class="ion-ios-arrow-forward"></span></a></li>
         <?php endforeach; ?>
     </div>
 </div>

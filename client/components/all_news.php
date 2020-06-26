@@ -48,40 +48,33 @@ $total_page = $result[0]['total_page'];
     </div>
 <?php endforeach; ?>
 
-
 <div class="row mt-5">
     <div class="col text-center">
         <div class="block-27">
             <?php
             $range = 5;
-            $pagelimit = ($range - 1) / 2; 
+            $pagelimit = ($range - 1) / 2;
             $pagemax = $range;
-            if ($page - $pagelimit < 1) {
-                if ($total_page < $range) 
-                {
-                    $pagemax = $total_page;
-                }
+            if ($total_page <= $range) {
+                $pagemax = $total_page;
                 $pagemin = 1;
             } else {
-                if ($page + $pagelimit <= $total_page) {
-                    $pagemin = $page - $pagelimit;
-                    $pagemax = $page + $pagelimit;
-                }
-                if ($page + $pagelimit > $total_page) {
-                    if ($total_page < $range) 
-                    {
-                        $pagemin = 1;
-                        $pagemax = $sotrang;
+                if ($page - $pagelimit <= 1) {
+                    $pagemin = 1;
+                } else {
+                    if ($page + $pagelimit <= $total_page) {
+                        $pagemin = $page - $pagelimit;
+                        $pagemax = $page + $pagelimit;
                     } else {
                         $pagemin = $total_page - $range + 1;
                         $pagemax = $total_page;
                     }
                 }
             }
-            if ($page + $pagelimit > $total_page) {
-                $pagemax = $total_page;
-            } ?>
+            ?>
             <ul>
+                <?php print_r($pagemax);?>
+                <li class="first-btn"><a href="index.php?page=1" style="border: none; <?php if (($page <= 1) || ($total_page <= $range)) echo 'display: none;' ?>">&lt; &lt;</a></li>
                 <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page - 1); ?>">&lt;</a></li>
                 <?php if ($pagemin != 1) {
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
@@ -94,7 +87,7 @@ $total_page = $result[0]['total_page'];
                     echo '<li><a href=# style="border: none;">. . .</a></li>';
                 } ?>
                 <li class="next-btn" <?php if ($page >= $pagemax) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page + 1); ?>">&gt;</a></li>
-
+                <li class="last-btn"><a href="index.php?page=<?php echo $total_page; ?>" style="border: none; <?php if (($page >= $total_page) || ($total_page <= $range)) echo 'display: none;' ?>">&gt; &gt;</a></li>
             </ul>
         </div>
     </div>
