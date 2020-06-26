@@ -8,3 +8,5 @@ To run the project:
 4. Open http:/localhost/phpmyadmin
 5. Use hanutimes.sql to create database
 6. Go to http://localhost/hanutimes/client/
+
+# demo video : https://www.youtube.com/watch?v=G7gHafQLJ0g

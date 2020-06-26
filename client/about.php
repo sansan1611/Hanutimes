@@ -61,7 +61,7 @@
       <div class="row d-flex">
         <div class="col-md-6 d-flex">
           <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(images/about/about2.jpg);">
-            <a href="https://www.youtube.com/watch?v=zdPlDBSxM2U" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+            <a href="https://www.youtube.com/watch?v=G7gHafQLJ0g" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
               <span class="icon-play"></span>
             </a>
           </div>
@@ -117,7 +117,6 @@
             <div class="item">
               <div class="testimony-wrap py-4">
                 <div class="text">
-                  <!-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
                   <div class="d-flex align-items-center">
                     <div class="user-img" style="background-image: url(images/about/hue.jpg)"></div>
                     <div class="pl-3">
@@ -130,8 +129,7 @@
             </div>
             <div class="item">
               <div class="testimony-wrap py-4">
-                <div class="text">
-                  <!-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
+                <div class="text">    
                   <div class="d-flex align-items-center">
                     <div class="user-img" style="background-image: url(images/about/huong.jpg)"></div>
                     <div class="pl-3">
@@ -145,7 +143,6 @@
             <div class="item">
               <div class="testimony-wrap py-4">
                 <div class="text">
-                  <!-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
                   <div class="d-flex align-items-center">
                     <div class="user-img" style="background-image: url(images/about/quynh.jpg)"></div>
                     <div class="pl-3">
