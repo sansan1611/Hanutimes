@@ -1,5 +1,5 @@
 <?php
-$urlC = "http://localhost/hanutimes/api/get_all_category.php";
+$urlC = "http://localhost/hanutimes/webservices/api/get_all_category.php";
 
 $category = curl_init($urlC);
 curl_setopt($category, CURLOPT_RETURNTRANSFER, true);
@@ -7,7 +7,7 @@ $responseC = curl_exec($category);
 
 $resultC = json_decode($responseC, true);
 
-$urlT = "http://localhost/hanutimes/api/get_all_tags.php";
+$urlT = "http://localhost/hanutimes/webservices/api/get_all_tags.php";
 
 $tag = curl_init($urlT);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
