@@ -11,22 +11,23 @@ $result = json_decode($response, true);
 
 ?>
 
-<?php 
+<?php
 if ($result['message'] != NULL) {
     echo $result['message'];
-}
-else {
-foreach ($result as $key => $value) :
+} else {
+    foreach ($result as $key => $value) :
 ?>
         <li class="comment">
             <div class="vcard bio">
-                <img src="images/comment/comment (<?php echo(rand(1,8));?>).jpg" alt="Image placeholder">
+                <img src="images/comment/comment (<?php echo (rand(1, 8)); ?>).jpg" alt="Image placeholder">
             </div>
             <div class="comment-body">
                 <h3><?php echo $value['name'] ?></h3>
-                <p class="comment-content" ><?php echo $value['comment'] ?></p>
-                <!-- <p><a href="#" class="reply">Delete</a></p> -->
+                <?php foreach ($value['comment'] as $key => $value) : ?>
+                    <p class="comment-content" style="word-wrap: break-word;"><?php echo $value?></p>
+                <?php endforeach; ?>
             </div>
         </li>
-<?php 
-endforeach; } ?>
+<?php
+    endforeach;
+} ?>

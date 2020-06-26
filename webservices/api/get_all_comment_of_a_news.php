@@ -26,11 +26,12 @@
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
+      $comment_arr = explode(PHP_EOL, $comment);
       
       $post_item = array(
         'id' => $id,
         'name' => $name,
-        'comment' => $comment,
+        'comment' => $comment_arr,
         'news_id' => html_entity_decode($news_id)
       );
 
