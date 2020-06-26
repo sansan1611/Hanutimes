@@ -73,7 +73,7 @@ $total_page = $result[0]['total_page'];
             }
             ?>
             <ul>
-                <?php print_r($pagemax);?>
+                <?php //print_r($pagemax);?>
                 <li class="first-btn"><a href="index.php?page=1" style="border: none; <?php if (($page <= 1) || ($total_page <= $range)) echo 'display: none;' ?>">&lt; &lt;</a></li>
                 <li class="prev-btn" <?php if ($page == $pagemin) echo 'style = "display: none;"' ?>><a href="index.php?page=<?php echo ($page - 1); ?>">&lt;</a></li>
                 <?php if ($pagemin != 1) {

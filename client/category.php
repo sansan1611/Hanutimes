@@ -25,15 +25,6 @@
 </head>
 
 <body>
-	<?php $id = $_GET['id'];
-	$url = "http://localhost/hanutimes/api/get_all_category.php";
-
-	$tag = curl_init($url);
-	curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
-	$response = curl_exec($tag);
-
-	$result = json_decode($response, true);
-	?>
 
 	<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<?php include('components/nav-bar.php') ?>
