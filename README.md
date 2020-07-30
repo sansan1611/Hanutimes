@@ -9,5 +9,5 @@ To run the project:
 5. Use hanutimes.sql to create database
 6. Go to ```http://localhost/hanutimes/client/```
 
-# Demo video : 
+# Demo video
 ```https://www.youtube.com/watch?v=G7gHafQLJ0g```
